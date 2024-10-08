@@ -28,6 +28,9 @@ function BackendIntegrationExample() {
           strictPort: true,
           origin: 'http://localhost:5009',
         },
+        preview: {
+          port: 5009,
+        },
         build: {
           manifest: true,
           outDir,
@@ -49,4 +52,11 @@ function BackendIntegrationExample() {
 export default defineConfig({
   base: '/dev/',
   plugins: [BackendIntegrationExample()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['legacy-js-api'],
+      },
+    },
+  },
 })
